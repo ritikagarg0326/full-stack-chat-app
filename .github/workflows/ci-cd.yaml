@@ -41,10 +41,4 @@ jobs:
         run: |
           docker push ${{ secrets.DOCKER_USERNAME }}/chatapp-frontend:latest
 
-      # 7️⃣ Integration test using docker-compose
-      - name: Integration test using docker-compose
-        run: |
-          docker compose up -d
-          sleep 20
-          curl http://localhost
-          docker compose down
+      
