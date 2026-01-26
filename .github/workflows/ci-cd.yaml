@@ -40,3 +40,10 @@ jobs:
       - name: Push frontend Docker image
         run: |
           docker push ${{ secrets.DOCKER_USERNAME }}/chatapp-frontend:latest
+
+      - name: Integration test using docker-compose
+  run: |
+    docker compose up -d
+    sleep 20
+    curl http://localhost
+    docker compose down
